@@ -42,3 +42,9 @@ Cursor 配置导出清单
     $(awk '{print "--install-extension " $1}' extensions.txt | xargs)
   或逐行:
     while read line; do cursor --install-extension "$line"; done < extensions.txt
+
+一键还原:
+  bash restore.sh                    # 备份现有配置 + 还原 (不装扩展)
+  bash restore.sh --with-extensions  # 还原 + 批量装扩展
+  bash restore.sh --no-backup --with-extensions  # 全新机器
+  bash restore.sh --dry-run          # 预演
