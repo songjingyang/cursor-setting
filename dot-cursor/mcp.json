@@ -1,0 +1,16 @@
+{
+  "mcpServers": {
+    "sanshu": {
+      "command": "/Users/songjingyang/.local/bin/sanshu",
+      "args": []
+    },
+    "puppeteer": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-puppeteer"]
+    },
+    "browser-tools": {
+      "command": "npx",
+      "args": ["-y", "@agentdeskai/browser-tools-mcp@1.2.0"]
+    }
+  }
+}

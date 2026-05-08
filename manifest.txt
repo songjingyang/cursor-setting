@@ -1,0 +1,44 @@
+Cursor 配置导出清单
+=========================================
+导出时间: 2026-05-08
+来源主机: macOS (Darwin 23.5.0)
+用户:    songjingyang
+
+目录映射 (恢复时请将各目录内容拷贝至对应位置):
+  dot-cursor/                         -> ~/.cursor/
+  Application-Support-Cursor-User/    -> ~/Library/Application Support/Cursor/User/
+
+包含项:
+  dot-cursor/argv.json                  Cursor 启动参数
+  dot-cursor/mcp.json                   MCP 服务配置 (sanshu / puppeteer / browser-tools)
+  dot-cursor/ide_state.json             IDE 状态
+  dot-cursor/.gitignore                 Cursor 目录的 gitignore
+  dot-cursor/skills-cursor/             14 个 Cursor Skills + .sync-manifest.json
+  dot-cursor/plans/                     已保存的 plan 文档 (3 份)
+  dot-cursor/plugins/                   插件配置
+  Application-Support-Cursor-User/settings.json    VSCode/Cursor 设置
+  Application-Support-Cursor-User/locale.json      界面语言
+  Application-Support-Cursor-User/snippets/        代码片段 (当前为空)
+  Application-Support-Cursor-User/globalStorage/storage.json  全局 KV 设置
+  extensions.txt                        当前已安装扩展列表 (publisher.name@version)
+
+排除项 (原因) :
+  ~/.cursor/extensions/                  ~853M, 由 extensions.txt 重新安装即可
+  ~/.cursor/projects/                    ~20M, 含 agent-transcripts 与对话上下文 (可能含项目代码)
+  ~/.cursor/ai-tracking/                 12M SQLite, AI 代码生成追踪历史 (非配置)
+  Application Support/.../History/       文件编辑历史
+  Application Support/.../workspaceStorage/  各工作区缓存
+  globalStorage/state.vscdb*             ~650M SQLite 会话缓存
+  globalStorage/anysphere.*              Cursor 账户/登录态
+  globalStorage/eamodio.gitlens/         GitLens 缓存 (19M)
+
+脱敏说明:
+  已扫描 settings.json / mcp.json / storage.json 中的 token / key / password /
+  secret / authorization / bearer / client_secret / private_key 等关键字, 未发现匹配项.
+  如恢复后发现仍有敏感信息, 请自行修订.
+
+恢复扩展 (示例):
+  /Applications/Cursor.app/Contents/Resources/app/bin/cursor \
+    $(awk '{print "--install-extension " $1}' extensions.txt | xargs)
+  或逐行:
+    while read line; do cursor --install-extension "$line"; done < extensions.txt

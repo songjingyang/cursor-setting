@@ -1,0 +1,39 @@
+# Cursor / VSCode 缓存与会话数据 (体积大 / 含会话与登录态)
+*.vscdb
+*.vscdb-shm
+*.vscdb-wal
+*.vscdb.backup
+History/
+workspaceStorage/
+globalStorage/state.vscdb*
+globalStorage/anysphere.*/
+globalStorage/eamodio.gitlens/
+
+# AI 代码追踪历史 (含项目代码痕迹)
+ai-tracking/
+*.db
+
+# Cursor 本地项目缓存 / 对话上下文
+projects/
+agent-transcripts/
+
+# 扩展二进制 (体积大, 通过 extensions.txt 重装)
+extensions/
+
+# 临时与系统文件
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+*.swp
+node_modules/
+
+# 潜在敏感凭证
+**/secrets.json
+**/credentials.json
+**/.env
+**/.env.*
+*.pem
+*.key
+id_rsa
+id_ed25519
